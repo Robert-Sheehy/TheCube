@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CapsuleControl : MonoBehaviour
 {
+    private float turningSpeed = 180;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +16,11 @@ public class CapsuleControl : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.UpArrow))
-        transform.position += Vector3.up* Time.deltaTime;
+        transform.position += transform.forward* Time.deltaTime;
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(Vector3.up,-turningSpeed* Time.deltaTime);
+        }
+     
     }
 }
