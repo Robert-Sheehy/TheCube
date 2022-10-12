@@ -5,7 +5,7 @@ using UnityEngine;
 public class CapsuleControl : MonoBehaviour
 {
     private float turningSpeed = 180;
-
+    public Transform cubeTemplate;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +20,13 @@ public class CapsuleControl : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(Vector3.up,-turningSpeed* Time.deltaTime);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(cubeTemplate,
+                                transform.position - transform.forward,
+                                Quaternion.identity);
         }
      
     }
